@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd ">
+<struts>
+
+	<include file="struts-default.xml" />
+	<package name="my-default" extends="struts-default">
+	
+		<action name="hello" class="com.kogent.action.HelloAction">
+			<result name="success">hello.jsp</result>
+		</action>
+
+		<action name="adduser" class="com.kogent.action.UserAction">
+			<result name="input">add_user.jsp</result>
+			<result name="error">add_user.jsp</result>
+			<result name="success">user.jsp</result>
+		</action>
+
+		<action name="getuser"
+			class="com.kogent.action.GetUserAction">
+			<result name="success">edit_user.jsp</result>
+		</action>
+		<action name="edit" class="com.kogent.action.UserAction"
+			method="edit">
+			<result name="input">edit_user.jsp</result>
+			<result name="success">user.jsp</result>
+		</action>
+		<action name="delete" class="com.kogent.action.UserAction"
+			method="deleteUser">
+			<interceptor-ref name="basicStack" />
+			<result name="input">edit_user.jsp</result>
+			<result name="success">user.jsp</result>
+		</action>
+
+
+		<action name="login" class="com.kogent.action.LoginAction">
+			<result name="input">login.jsp</result>
+			<result name="error">login.jsp</result>
+			<result name="success">hello.jsp</result>
+		</action>
+
+		<action name="logout" class="com.kogent.action.LogoutAction">
+			<result name="success">login.jsp</result>
+		</action>
+
+
+
+	</package>
+</struts>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="default" extends="struts-default">			
+			<action name="loginAction" class="com.kogent.struts.action.LoginAction">
+				<result name="success">/index.jsp</result>
+				<result name="login">/login.jsp</result>	
+				<result name="input">/login.jsp</result>					
+			</action>			
+			<action name="addEmployeeAction" class="com.kogent.struts.action.AddEmployeeAction">
+				<result name="success">/addemployee.jsp</result>
+				<result name="login">/index.jsp</result>									
+			</action>			
+			<action name="addEmployee" class="com.kogent.struts.action.AddEmployeeAction" method="addEmployee">
+				<result name="success">/index.jsp</result>												
+			</action>			
+			<action name="logoutAction" class="com.kogent.struts.action.LogoutAction">
+				<result name="success">/index.jsp</result>
+			</action>			
+	</package>
+</struts>	

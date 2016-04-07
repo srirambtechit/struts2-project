@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>  
+    <definition name="register_tiles" path="/Layout.jsp">
+        <put name="title"  value="Welcome - Registering Using Tiles" />
+        <put name="header" value="/header.jsp" />     
+        <put name="body"   value="/register_form.jsp" />
+        <put name="footer" value="/footer.jsp" />
+    </definition>
+</tiles-definitions>
+    

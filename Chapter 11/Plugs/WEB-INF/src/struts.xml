@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd ">
+<struts>
+	
+	<package name="default" extends="struts-default">
+		<action name="login" class="com.kogent.action.LoginAction">				
+		</action>
+	</package>
+	
+	<package name="struts1_default" extends="struts1-default">	
+		
+	<interceptors>
+	   <interceptor name="loginForm" class="com.opensymphony.xwork2.interceptor.ScopedModelDrivenInterceptor">
+	        	<param name="className">com.kogent.struts1.form.LoginForm</param>
+	        	<param name="name">loginForm</param>	        	
+	    </interceptor>	    	      
+	</interceptors>
+	
+	<action name="struts1_login" class="org.apache.struts2.s1.Struts1Action">
+	  	<param name="className">com.kogent.struts1.action.LoginAction</param>
+	  	<param name="validate">true</param>
+	  	
+	  			<interceptor-ref name="static-params"/>
+	  	     	<interceptor-ref name="loginForm" />
+	    		<interceptor-ref name="model-driven"/>
+                <interceptor-ref name="actionForm-reset"/>
+                <interceptor-ref name="basicStack"/>
+                <interceptor-ref name="actionForm-validation"/>
+                <interceptor-ref name="workflow"/>
+
+	  	<result>login-success.jsp</result>	 	  	
+	  	<result name="error">login1.jsp</result>		   	   	
+	 </action>		
+	</package>	
+	
+	<package name="jfree" extends="jfreechart-default">
+			<action name="chartAction" class="com.kogent.action.ChartAction">
+				<result name="success" type="chart">
+					<param name="width">500</param>
+					<param name="height">300</param> 
+				</result>
+			</action>
+	</package>
+		
+</struts>

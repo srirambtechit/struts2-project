@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd ">
+<struts>	
+	<package name="default" extends="tiles-default">
+		<action name="login" class="com.kogent.action.LoginAction">
+			<result name="error">login.jsp</result>
+			<result name="input">login.jsp</result>
+			<result name="success">adminhome.jsp</result>     		
+		</action>
+		
+		<action name="addCategory" class="com.kogent.action.CategoryAction" method="add">
+		<result name="error" type="tiles">addCatForm.def</result>   	
+		<result name="input" type="tiles">addCatForm.def</result>   	
+		<result type="chain">
+			<param name="actionName">getCategories</param>		
+		</result>     		
+		</action>
+		
+		<action name="getCategories" class="com.kogent.action.CategoryAction" method="getCategories">
+			<result type="tiles">categories.def</result>     		
+		</action>
+		<action name="deletCategory" class="com.kogent.action.CategoryAction" method="delete">
+			<result type="tiles">categories.def</result>     		
+		</action>
+		
+		<action name="addProduct" class="com.kogent.action.ProductAction" method="add">
+		<result name="error" type="tiles">addProdForm.def</result>   	
+		<result name="input" type="tiles">addProdForm.def</result>   	
+		<result type="tiles">products.def</result>    		
+		</action>	
+		<action name="products" class="com.kogent.action.CategoryAction" method="getCategories">
+			<result type="tiles">products.def</result>     		
+		</action>
+		<action name="getProducts" class="com.kogent.action.ProductAction" method="getProducts">
+			<result type="tiles">products.def</result>     		
+		</action>	
+		<action name="deletProduct" class="com.kogent.action.ProductAction" method="delete">
+			<result type="tiles">products.def</result>     		
+		</action>
+		
+		<action name="showproducts" class="com.kogent.action.CategoryAction" method="getCategories">
+			<result type="tiles">showproducts.def</result>     		
+		</action>
+		<action name="getProducts1" class="com.kogent.action.ProductAction" method="getProducts">
+			<result type="tiles">showproducts.def</result>     		
+		</action>
+		
+		<action name="getProduct" class="com.kogent.action.ProductAction" method="getProduct">
+			<result type="tiles">addingtocart.def</result>     		
+		</action>
+		<action name="addToCart" class="com.kogent.action.OrderAction" method="addToCart">
+			<result name="input" type="tiles">addingtocart.def</result>   
+			<result type="tiles">showingcart.def</result>     		
+		</action>
+		<action name="deleteFromCart" class="com.kogent.action.OrderAction" method="deleteFromCart">
+			<result type="tiles">showingcart.def</result>     		
+		</action>
+		<action name="showcart">
+			<result type="tiles">showingcart.def</result>     		
+		</action>
+		<action name="checkout">
+			<result type="tiles">checkout.def</result>     		
+		</action>
+		<action name="placeOrder" class="com.kogent.action.PlaceOrderAction">
+			<result name="input" type="tiles">checkout.def</result>     		
+			<result type="tiles">bill.def</result>     		
+		</action>
+		
+		
+		<action name="logout">
+			<result>login.jsp</result>     		
+		</action>		
+		<action name="addcatform">
+			<result type="tiles">addCatForm.def</result>   		
+		</action>
+		<action name="addprodform" class="com.kogent.action.CategoryAction" method="getCategories">
+			<result type="tiles">addProdForm.def</result>   		
+		</action>		
+	</package>		
+</struts>

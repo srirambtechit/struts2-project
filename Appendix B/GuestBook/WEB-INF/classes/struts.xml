@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd ">
+<struts>	
+	<package name="free-default" extends="struts-default">
+		<action name="addAction" class="com.kogent.action.AddAction">
+			<result name="success" type="freemarker">/add.ftl</result>
+		</action>		
+		<action name="indexAction" class="com.kogent.action.IndexAction">
+			<result name="success" type="freemarker">/index.ftl</result>
+		</action>		
+		<action name="showForm">
+			<result type="freemarker">/form.ftl</result>
+		</action>
+</package>
+</struts>

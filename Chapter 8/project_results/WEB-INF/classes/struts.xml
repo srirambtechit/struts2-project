@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd ">
+<struts>
+<include file="struts-default.xml"/>
+<package name="default" extends="struts-default">
+
+	<result-types>
+		<result-type name="myresult" class="com.kogent.results.MyResult"/>
+	</result-types>
+
+	<action name="action1" class="com.kogent.action.Action1">
+		<result name="success" type="dispatcher">/success.jsp</result>
+	</action>
+	
+	<action name="action2" class="com.kogent.action.Action2">
+		<result name="success" type="chain">action1</result>
+	</action>	
+	
+	<action name="action3" class="com.kogent.action.Action1">
+		<result name="success" type="redirect">/success.jsp</result>
+	</action>	
+	
+	<action name="action4" class="com.kogent.action.Action2">
+		<result name="success" type="redirect-action">action1</result>
+	</action>	
+		
+	<action name="action5" class="com.kogent.action.Action1">
+		<result name="success" type="freemarker">free.ftl</result>
+	</action>	
+	
+	<action name="action6" class="com.kogent.action.RandomAction">	
+			<result name="success" type="myresult">
+			   <param name="property">pr1</param>
+			</result>			
+			<result name="error" type="myresult">
+			   <param name="property">pr2</param>
+			</result>			
+			<result name="input" type="myresult">pr3</result>
+	</action>	
+</package>
+</struts>

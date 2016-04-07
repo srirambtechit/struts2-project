@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<package name="default" extends="struts-default">
+
+<action name="addClient" class="com.kogent.action.AddClientAction">
+	<result name="success">client.jsp</result>
+	<result name="input">addclient.jsp</result>
+</action>
+
+<action name="addEmployee" class="com.kogent.action.AddEmployeeAction">
+	<result name="success">employee.jsp</result>
+	<result name="input">addemployee.jsp</result>
+</action>
+
+<action name="changePassword" class="com.kogent.action.ChangePasswordAction" >
+	<result name="input">changepassword.jsp</result>		
+	<result>changepassword-success.jsp</result>
+</action>
+
+<action name="login" class="com.kogent.action.LoginAction">
+  <result name="input">login.jsp</result>
+  <result name="error">login.jsp</result>
+  <result name="success">login-success.jsp</result>
+</action>
+
+<action name="addUser" class="com.kogent.action.AddUserAction">
+  <result name="input">register.jsp</result>
+  <result name="error">register.jsp</result>
+  <result name="success">register-success.jsp</result>
+</action>
+
+</package>
+</struts>

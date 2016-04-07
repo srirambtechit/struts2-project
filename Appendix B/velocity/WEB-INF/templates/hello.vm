@@ -1,0 +1,8 @@
+<html>
+<body style="font-family:verdana">
+Hello $name
+<br><br>
+Your Company: $company
+</body>
+<html>
+

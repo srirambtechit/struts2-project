@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+  <definition name="addCatForm.def" template="/layout.jsp">    
+      <put-attribute name="title"  value="Welcome to www.ishop.com - Adding New Category" type="string"/>
+      <put-attribute name="header" value="/header.jsp"/>
+      <put-attribute name="menu" value="/adminmenu.jsp"/>
+      <put-attribute name="body"   value="/addcatform.jsp"/>
+      <put-attribute name="footer" value="/footer.jsp"/>
+  </definition>
+     
+  <definition name="addProdForm.def" extends="addCatForm.def">    
+      <put-attribute name="title"  value="Welcome to www.ishop.com - Adding New Product" type="string"/>
+      <put-attribute name="body"   value="/addprodform.jsp"/>
+  </definition>   
+  
+  <definition name="addErrorForm.def" extends="addCatForm.def">    
+      <put-attribute name="title"  value="Welcome to www.ishop.com - Adding New Product" type="string"/>
+      <put-attribute name="body"   value="/adderrorform.jsp"/>
+  </definition>  
+       
+  <definition name="categories.def" extends="addCatForm.def">    
+      <put-attribute name="title"  value="Welcome to www.ishop.com - Showing all Categories" type="string"/>
+      <put-attribute name="body"   value="/categories.jsp"/>
+  </definition>   
+  <definition name="products.def" extends="addCatForm.def">    
+      <put-attribute name="title"  value="Welcome to www.ishop.com - Showing Products" type="string"/>
+      <put-attribute name="body"   value="/products.jsp"/>
+  </definition> 
+  
+  <definition name="showproducts.def" extends="addCatForm.def">    
+      <put-attribute name="title"  value="Welcome to www.ishop.com - Select Products for Your Shopping Cart" type="string"/>
+       <put-attribute name="menu" value="/mainmenu.jsp"/>
+      <put-attribute name="body"   value="/showproducts.jsp"/>
+  </definition> 
+  <definition name="addingtocart.def" extends="showproducts.def">    
+      <put-attribute name="title"  value="Welcome to www.ishop.com - Adding to Shopping Cart" type="string"/>
+      <put-attribute name="body"   value="/addtocart.jsp"/>
+  </definition>
+   <definition name="showingcart.def" extends="showproducts.def">    
+      <put-attribute name="title"  value="Welcome to www.ishop.com - Showing your Shopping Cart" type="string"/>
+      <put-attribute name="body"   value="/showcart.jsp"/>
+  </definition>
+  <definition name="checkout.def" extends="showproducts.def">    
+      <put-attribute name="title"  value="Welcome to www.ishop.com - Enter Payment Details" type="string"/>
+      <put-attribute name="body"   value="/checkout.jsp"/>
+  </definition>
+  <definition name="bill.def" extends="showproducts.def">    
+      <put-attribute name="title"  value="Welcome to www.ishop.com - Your Bill" type="string"/>
+      <put-attribute name="body"   value="/bill.jsp"/>
+  </definition> 
+</tiles-definitions>

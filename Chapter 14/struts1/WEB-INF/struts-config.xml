@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+ <form-beans >
+    <form-bean name="loginForm" type="com.kogent.form.LoginForm" />
+  </form-beans>
+
+  <action-mappings >
+    <action
+      attribute="loginForm"
+      input="/login.jsp"
+      name="loginForm"
+      path="/login"
+      scope="request"
+      type="com.kogent.action.LoginAction">
+      <forward name="success" path="/login_success.jsp" />
+      <forward name="failure" path="/login.jsp" />
+    </action>
+  </action-mappings>
+  <message-resources parameter="com.kogent.ApplicationResources" />
+</struts-config>
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE validators PUBLIC 
+  		"-//OpenSymphony Group//XWork Validator 1.0//EN" 
+  		"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">		
+ 		
+<validators>
+	<field name="empid">
+		<field-validator type="requiredstring">
+			<message>Employee ID is required</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression">
+				<![CDATA[([k][o][g][0-9][0-9][0-9])]]>
+			</param>
+			<message>Valid Employee ID required e.g. kog101</message>
+		</field-validator>
+	</field>	
+	
+	<field name="password">
+		<field-validator type="requiredstring">
+			<message>Password field is empty.</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">10</param>
+			<param name="minLength">4</param>
+			<param name="trim">true</param>
+			<message>Enter password 4-10 characters long.</message>
+		</field-validator>
+	</field>
+	
+	<field name="password1">
+		<field-validator type="fieldexpression">
+			<param name="expression">(password == password1)</param>
+			<message>Password and Re-Enter Password must be same.</message>
+		</field-validator>
+	</field>
+	
+	<field name="empname">
+		<field-validator type="requiredstring">
+			<message>Employee Name is required.</message>
+		</field-validator>
+	</field>
+	
+	<field name="doj">
+		<field-validator type="date">
+			<param name="min">01/01/2006</param>
+			<param name="max">01/01/2008</param>
+			<message>Enter a date between ${min}and ${max}</message>
+		</field-validator>
+	</field>
+	
+	<field name="age">
+		<field-validator type="int">
+			<param name="min">18</param>
+			<param name="max">45</param>
+			<message>Enter between 18 and 45.</message>
+		</field-validator>
+	</field>	
+	
+	<field name="email">
+		<field-validator type="requiredstring">
+			<message>E-Mail field is empty</message>
+		</field-validator>
+		<field-validator type="email">
+			<message>Enter a valid E-Mail Id.</message>
+		</field-validator>
+	</field>	
+</validators>
+

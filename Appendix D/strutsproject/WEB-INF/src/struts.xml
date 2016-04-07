@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd ">
+<struts>
+
+	<package name="default">
+		<result-types>
+			<result-type name="dispatcher" class="org.apache.struts2.dispatcher.ServletDispatcherResult"/>
+		</result-types>
+		
+
+	<interceptors>
+		<interceptor name="exception" 
+		class="com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor"/>
+		<interceptor name="servlet-config" 
+		class="org.apache.struts2.interceptor.ServletConfigInterceptor"/>
+		<interceptor name="prepare" 
+		class="com.opensymphony.xwork2.interceptor.PrepareInterceptor"/>
+		<interceptor name="checkbox" 
+		class="org.apache.struts2.interceptor.CheckboxInterceptor" />
+		<interceptor name="params" 
+		class="com.opensymphony.xwork2.interceptor.ParametersInterceptor"/>
+		<interceptor name="conversionError" 
+		class="org.apache.struts2.interceptor.StrutsConversionErrorInterceptor"/>
+		
+		<interceptor-stack name="MyBasicStack">
+	                <interceptor-ref name="exception"/>
+	                <interceptor-ref name="servlet-config"/>
+	                <interceptor-ref name="prepare"/>
+	                <interceptor-ref name="checkbox"/>
+	                <interceptor-ref name="params"/>
+	                <interceptor-ref name="conversionError"/>
+	    </interceptor-stack>
+	</interceptors>
+
+	<global-results>
+              <result name="exception" type="dispatcher">/exception.jsp</result>
+    </global-results>
+
+	
+	<action name="displayAction" class="com.kogent.DisplayAction">
+		<interceptor-ref name="MyBasicStack"/>
+		<result name="success" type="dispatcher">
+			<param name="location">/success.jsp</param>
+		</result>
+	</action>
+	
+	<action name="myaction" class="com.kogent.MyAction">
+		<exception-mapping exception="java.lang.Exception" result="exception"/>
+		<interceptor-ref name="MyBasicStack"/>		
+		<result name="success" type="dispatcher">/success</result>
+	</action>
+	
+	</package>
+</struts>

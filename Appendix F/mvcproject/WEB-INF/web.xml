@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+  <servlet>
+    <servlet-name>AddStudent</servlet-name>
+    <servlet-class>com.kogent.servlet.AddStudent</servlet-class>
+  </servlet>
+  <servlet>  
+    <servlet-name>GetStudents</servlet-name>
+    <servlet-class>com.kogent.servlet.GetStudents</servlet-class>
+  </servlet>
+    <servlet>  
+    <servlet-name>GetStudent</servlet-name>
+    <servlet-class>com.kogent.servlet.GetStudent</servlet-class>
+  </servlet>
+   <servlet>  
+    <servlet-name>EditStudent</servlet-name>
+    <servlet-class>com.kogent.servlet.EditStudent</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>AddStudent</servlet-name>
+    <url-pattern>/addStudent</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetStudents</servlet-name>
+    <url-pattern>/getStudents</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>GetStudent</servlet-name>
+    <url-pattern>/getStudent</url-pattern>
+  </servlet-mapping>
+     <servlet-mapping>
+    <servlet-name>EditStudent</servlet-name>
+    <url-pattern>/editStudent</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
